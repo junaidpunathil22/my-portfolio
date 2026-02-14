@@ -65,14 +65,50 @@ const Contact = () => {
                         className="bg-slate-800/20 p-8 rounded-3xl border border-slate-700/50"
                     >
                         <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
-                        <form className="space-y-4" action="#" onSubmit={(e) => e.preventDefault()}>
-                            <input type="text" placeholder="Your Name" className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-sky-500 transition-colors" />
-                            <input type="email" placeholder="Your Email" className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-sky-500 transition-colors" />
-                            <textarea placeholder="Your Message" rows="4" className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-sky-500 transition-colors"></textarea>
-                            <button type="submit" className="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02]">
-                                Send Message
-                            </button>
-                        </form>
+                        <form
+  name="contact"
+  method="POST"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  className="space-y-4"
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <p hidden>
+    <input name="bot-field" />
+  </p>
+
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 text-white"
+    required
+  />
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 text-white"
+    required
+  />
+
+  <textarea
+    name="message"
+    rows="4"
+    placeholder="Your Message"
+    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-5 py-4 text-white"
+    required
+  ></textarea>
+
+  <button
+    type="submit"
+    className="w-full bg-gradient-to-r from-sky-500 to-blue-600 py-4 rounded-xl text-white font-bold"
+  >
+    Send Message
+  </button>
+</form>
+
                     </motion.div>
                 </div>
 
